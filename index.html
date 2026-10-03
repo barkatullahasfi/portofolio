@@ -1,507 +1,920 @@
-<!DOCTYPE html> 
- <html lang="en"> 
- <head> 
-   <meta charset="UTF-8" /> 
-   <meta name="viewport" content="width=device-width, initial-scale=1.0" /> 
-   <title>Barkatullah Asfi – PHP Back-End Developer (Laravel) | Cybersecurity & Incident Response</title>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Barkatullah Asfi – PHP Back-End Developer (Laravel) | Cybersecurity & Incident Response</title>
 
   <!-- SEO -->
   <meta name="description" content="PHP Back-End Developer (Laravel) with 5 years building production government systems, plus cybersecurity background: penetration testing, SIEM deployment, and incident response. CEH, CHFI certified.">
- 
-   <!-- Simple styling --> 
-   <style> 
-     :root { 
-       --bg: #0f172a; 
-       --card: #111827; 
-       --text: #e5e7eb; 
-       --muted: #9ca3af; 
-       --accent: #38bdf8; 
-       --border: #1f2933; 
-     } 
- 
-     * { 
-       box-sizing: border-box; 
-     } 
- 
-     body { 
-       margin: 0; 
-       font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; 
-       background: var(--bg); 
-       color: var(--text); 
-       line-height: 1.6; 
-     } 
- 
-     a { 
-       color: var(--accent); 
-       text-decoration: none; 
-     } 
- 
-     .container { 
-       max-width: 900px; 
-       margin: 0 auto; 
-       padding: 40px 20px; 
-     } 
- 
-     header { 
-       margin-bottom: 60px; 
-     } 
- 
-     header h1 { 
-       font-size: 2.4rem; 
-       margin-bottom: 10px; 
-     } 
- 
-     header p { 
-       color: var(--muted); 
-       max-width: 700px; 
-     } 
- 
-     section { 
-       margin-bottom: 60px; 
-     } 
- 
-     h2 { 
-       font-size: 1.6rem; 
-       margin-bottom: 20px; 
-       border-bottom: 1px solid var(--border); 
-       padding-bottom: 10px; 
-     } 
- 
-     .card { 
-       background: var(--card); 
-       border: 1px solid var(--border); 
-       border-radius: 12px; 
-       padding: 24px; 
-       margin-bottom: 24px; 
-     } 
- 
-     .card h3 { 
-       margin-top: 0; 
-       margin-bottom: 10px; 
-     } 
- 
-     .tag { 
-       display: inline-block; 
-       background: #0b253a; 
-       color: var(--accent); 
-       padding: 4px 10px; 
-       border-radius: 999px; 
-       font-size: 0.85rem; 
-       margin: 4px 6px 4px 0; 
-     } 
- 
-     footer { 
-       border-top: 1px solid var(--border); 
-       padding-top: 30px; 
-       color: var(--muted); 
-       font-size: 0.9rem; 
-     } 
- 
-     @media (max-width: 600px) { 
-       header h1 { 
-         font-size: 1.9rem; 
-       } 
-     } 
-   </style> 
- </head> 
- <body> 
- 
-   <div class="container"> 
- 
-     <!-- HERO --> 
-     <header>
-      <h1>Barkatullah Asfi</h1>
-      <p>
-        PHP Back-End Developer (Laravel) | Cybersecurity &amp; Incident Response (CEH, CHFI).
-        5 years of experience building and maintaining production Laravel/PHP systems, including a
-        full-scale government attendance platform, land-permit workflow, ticketing, and e-commerce
-        applications — backed by hands-on server administration and hands-on security work
-        (penetration testing, SIEM deployment, CVE remediation). Available for remote projects and
-        maintenance work (async).
-      </p>
+  <meta property="og:title" content="Barkatullah Asfi – Laravel Back-End Developer & Security">
+  <meta property="og:description" content="5 years building production Laravel/PHP systems with a security-first approach. CEH, CHFI.">
+  <meta name="theme-color" content="#0b1020">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #0b1020;
+      --bg-2: #0f1629;
+      --card: rgba(255, 255, 255, 0.035);
+      --card-hover: rgba(255, 255, 255, 0.06);
+      --border: rgba(255, 255, 255, 0.08);
+      --border-strong: rgba(255, 255, 255, 0.16);
+      --text: #e6e9f2;
+      --muted: #94a0b8;
+      --accent: #38bdf8;
+      --accent-2: #a78bfa;
+      --green: #34d399;
+      --grad: linear-gradient(135deg, #38bdf8 0%, #818cf8 50%, #c084fc 100%);
+      --radius: 16px;
+      --mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; scroll-padding-top: 80px; }
+
+    body {
+      margin: 0;
+      font-family: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    /* Ambient background glow + grid */
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      z-index: -2;
+      background:
+        radial-gradient(600px circle at 15% 10%, rgba(56, 189, 248, 0.14), transparent 60%),
+        radial-gradient(700px circle at 85% 30%, rgba(167, 139, 250, 0.12), transparent 60%),
+        radial-gradient(600px circle at 50% 100%, rgba(52, 211, 153, 0.06), transparent 60%);
+    }
+    body::after {
+      content: "";
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+      background-size: 48px 48px;
+      mask-image: radial-gradient(ellipse at top, #000 30%, transparent 75%);
+      -webkit-mask-image: radial-gradient(ellipse at top, #000 30%, transparent 75%);
+    }
+
+    a { color: var(--accent); text-decoration: none; transition: color .2s; }
+    a:hover { color: #7dd3fc; }
+
+    .container { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+
+    /* ---------- NAV ---------- */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      background: rgba(11, 16, 32, 0.7);
+      border-bottom: 1px solid var(--border);
+    }
+    nav .container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 64px;
+    }
+    .logo {
+      font-family: var(--mono);
+      font-weight: 500;
+      color: var(--text);
+      font-size: 0.95rem;
+    }
+    .logo span { color: var(--accent); }
+    .nav-links { display: flex; gap: 28px; list-style: none; margin: 0; padding: 0; }
+    .nav-links a { color: var(--muted); font-size: 0.9rem; font-weight: 500; }
+    .nav-links a:hover { color: var(--text); }
+
+    /* ---------- HERO ---------- */
+    .hero {
+      padding: 96px 0 72px;
+      display: grid;
+      grid-template-columns: 1.4fr 1fr;
+      gap: 48px;
+      align-items: center;
+    }
+    .status {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 14px;
+      border-radius: 999px;
+      border: 1px solid rgba(52, 211, 153, 0.3);
+      background: rgba(52, 211, 153, 0.08);
+      color: var(--green);
+      font-size: 0.82rem;
+      font-weight: 500;
+      margin-bottom: 24px;
+    }
+    .status .dot {
+      width: 8px; height: 8px; border-radius: 50%;
+      background: var(--green);
+      box-shadow: 0 0 0 0 rgba(52, 211, 153, 0.7);
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse {
+      0% { box-shadow: 0 0 0 0 rgba(52, 211, 153, 0.6); }
+      70% { box-shadow: 0 0 0 10px rgba(52, 211, 153, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(52, 211, 153, 0); }
+    }
+    .hero h1 {
+      font-size: clamp(2.4rem, 5.5vw, 3.8rem);
+      line-height: 1.08;
+      letter-spacing: -0.03em;
+      font-weight: 800;
+      margin: 0 0 16px;
+    }
+    .gradient-text {
+      background: var(--grad);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+    .hero .role {
+      font-size: 1.15rem;
+      color: var(--text);
+      font-weight: 500;
+      margin: 0 0 18px;
+    }
+    .hero .lead { color: var(--muted); font-size: 1.02rem; max-width: 580px; margin: 0 0 32px; }
+
+    .btns { display: flex; flex-wrap: wrap; gap: 12px; }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 22px;
+      border-radius: 12px;
+      font-weight: 600;
+      font-size: 0.95rem;
+      transition: transform .2s, box-shadow .2s, background .2s, border-color .2s;
+    }
+    .btn svg { width: 18px; height: 18px; }
+    .btn-primary { background: var(--grad); color: #0b1020; }
+    .btn-primary:hover { color: #0b1020; transform: translateY(-2px); box-shadow: 0 10px 30px -10px rgba(129, 140, 248, 0.7); }
+    .btn-ghost { border: 1px solid var(--border-strong); color: var(--text); background: var(--card); }
+    .btn-ghost:hover { color: var(--text); border-color: var(--accent); transform: translateY(-2px); }
+
+    /* Terminal card */
+    .terminal {
+      background: rgba(15, 22, 41, 0.85);
+      border: 1px solid var(--border-strong);
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: 0 30px 60px -20px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(56, 189, 248, 0.05);
+      font-family: var(--mono);
+      font-size: 0.85rem;
+    }
+    .terminal-bar {
+      display: flex; gap: 7px; align-items: center;
+      padding: 12px 16px;
+      border-bottom: 1px solid var(--border);
+      background: rgba(255,255,255,0.02);
+    }
+    .terminal-bar i { width: 11px; height: 11px; border-radius: 50%; display: block; }
+    .terminal-bar i:nth-child(1) { background: #f87171; }
+    .terminal-bar i:nth-child(2) { background: #fbbf24; }
+    .terminal-bar i:nth-child(3) { background: #34d399; }
+    .terminal-bar span { margin-left: 10px; color: var(--muted); font-size: 0.78rem; }
+    .terminal pre { margin: 0; padding: 20px; line-height: 1.8; white-space: pre-wrap; color: var(--text); }
+    .t-key { color: var(--accent-2); }
+    .t-str { color: var(--green); }
+    .t-com { color: #64748b; }
+    .t-prompt { color: var(--accent); }
+    .cursor { display: inline-block; width: 8px; height: 1em; background: var(--accent); vertical-align: -2px; animation: blink 1s steps(1) infinite; }
+    @keyframes blink { 50% { opacity: 0; } }
+
+    /* Stats */
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      margin-bottom: 96px;
+    }
+    .stat {
+      padding: 22px;
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      background: var(--card);
+      text-align: center;
+    }
+    .stat b {
+      display: block;
+      font-size: 2rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      background: var(--grad);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+    .stat span { color: var(--muted); font-size: 0.85rem; }
+
+    /* ---------- SECTIONS ---------- */
+    section { margin-bottom: 110px; }
+    .eyebrow {
+      font-family: var(--mono);
+      color: var(--accent);
+      font-size: 0.82rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin: 0 0 8px;
+    }
+    h2 {
+      font-size: clamp(1.8rem, 3.5vw, 2.4rem);
+      letter-spacing: -0.02em;
+      font-weight: 800;
+      margin: 0 0 40px;
+    }
+    h3 { margin: 0; font-size: 1.12rem; font-weight: 700; letter-spacing: -0.01em; }
+
+    .about-grid { display: grid; grid-template-columns: 1.5fr 1fr; gap: 32px; align-items: start; }
+    .about-grid p { color: var(--muted); margin: 0 0 16px; }
+    .about-grid p strong { color: var(--text); font-weight: 600; }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 26px;
+      transition: border-color .25s, background .25s, transform .25s;
+    }
+    .card:hover { border-color: var(--border-strong); background: var(--card-hover); }
+
+    .focus-list { list-style: none; padding: 0; margin: 0; display: grid; gap: 14px; }
+    .focus-list li { display: flex; gap: 12px; align-items: flex-start; color: var(--muted); font-size: 0.95rem; }
+    .focus-list .ic {
+      flex: none;
+      width: 34px; height: 34px;
+      border-radius: 10px;
+      display: grid; place-items: center;
+      background: rgba(56, 189, 248, 0.1);
+      color: var(--accent);
+    }
+    .focus-list .ic svg { width: 18px; height: 18px; }
+    .focus-list b { color: var(--text); display: block; font-weight: 600; font-size: 0.95rem; }
+
+    /* Timeline */
+    .timeline { position: relative; padding-left: 32px; }
+    .timeline::before {
+      content: "";
+      position: absolute;
+      left: 7px; top: 8px; bottom: 8px;
+      width: 2px;
+      background: linear-gradient(var(--accent), var(--accent-2), transparent);
+      border-radius: 2px;
+    }
+    .tl-item { position: relative; margin-bottom: 24px; }
+    .tl-item::before {
+      content: "";
+      position: absolute;
+      left: -32px; top: 30px;
+      width: 16px; height: 16px;
+      border-radius: 50%;
+      background: var(--bg);
+      border: 3px solid var(--accent);
+      box-shadow: 0 0 0 4px rgba(56, 189, 248, 0.15);
+    }
+    .tl-head { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px 16px; margin-bottom: 6px; }
+    .tl-org { color: var(--accent); font-weight: 500; font-size: 0.95rem; }
+    .date {
+      font-family: var(--mono);
+      font-size: 0.78rem;
+      color: var(--muted);
+      padding: 4px 10px;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      white-space: nowrap;
+      height: fit-content;
+    }
+    .tl-item ul { margin: 14px 0 0; padding-left: 18px; color: var(--muted); }
+    .tl-item li { margin-bottom: 8px; }
+    .tl-item li::marker { color: var(--accent); }
+    .tl-item p { color: var(--muted); margin: 12px 0 0; }
+
+    /* Projects */
+    .filters { display: flex; flex-wrap: wrap; gap: 8px; margin: -16px 0 28px; }
+    .filter {
+      font: inherit;
+      font-size: 0.85rem;
+      font-weight: 500;
+      padding: 7px 16px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: var(--card);
+      color: var(--muted);
+      cursor: pointer;
+      transition: all .2s;
+    }
+    .filter:hover { color: var(--text); border-color: var(--border-strong); }
+    .filter.active { background: var(--text); color: var(--bg); border-color: var(--text); }
+
+    .projects { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+    .project { display: flex; flex-direction: column; position: relative; overflow: hidden; }
+    .project::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 2px;
+      background: var(--grad);
+      opacity: 0;
+      transition: opacity .25s;
+    }
+    .project:hover { transform: translateY(-4px); }
+    .project:hover::before { opacity: 1; }
+    .project.hidden { display: none; }
+    .p-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; margin-bottom: 12px; }
+    .badge {
+      font-family: var(--mono);
+      font-size: 0.7rem;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      padding: 4px 10px;
+      border-radius: 6px;
+      white-space: nowrap;
+    }
+    .b-gov { color: var(--accent); background: rgba(56, 189, 248, 0.1); }
+    .b-vendor { color: var(--accent-2); background: rgba(167, 139, 250, 0.12); }
+    .b-sec { color: #f87171; background: rgba(248, 113, 113, 0.1); }
+    .b-personal { color: #fbbf24; background: rgba(251, 191, 36, 0.1); }
+    .b-dev { color: var(--green); background: rgba(52, 211, 153, 0.1); }
+
+    .project h3 a { color: var(--text); }
+    .project h3 a:hover { color: var(--accent); }
+    .project .desc { color: var(--muted); font-size: 0.94rem; margin: 0 0 14px; }
+    .project .role { margin: 0 0 16px; padding-left: 18px; color: var(--muted); font-size: 0.88rem; }
+    .project .role li { margin-bottom: 4px; }
+    .project .role li::marker { color: var(--accent-2); }
+    .project .note { font-size: 0.82rem; color: #64748b; margin: 0 0 14px; font-style: italic; }
+    .p-foot { margin-top: auto; display: flex; flex-wrap: wrap; gap: 6px; padding-top: 4px; }
+    .p-links { display: flex; gap: 16px; flex-wrap: wrap; margin: 0 0 14px; font-size: 0.86rem; font-weight: 500; }
+    .p-links a { display: inline-flex; align-items: center; gap: 6px; }
+    .p-links svg { width: 14px; height: 14px; }
+
+    .tag {
+      display: inline-block;
+      font-family: var(--mono);
+      font-size: 0.75rem;
+      color: #cbd5e1;
+      padding: 4px 10px;
+      border-radius: 6px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--border);
+    }
+
+    /* Skills */
+    .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px; }
+    .skill-card h3 { display: flex; align-items: center; gap: 10px; margin-bottom: 16px; font-size: 1rem; }
+    .skill-card h3 .ic {
+      width: 32px; height: 32px;
+      border-radius: 9px;
+      display: grid; place-items: center;
+      background: rgba(167, 139, 250, 0.12);
+      color: var(--accent-2);
+    }
+    .skill-card h3 svg { width: 17px; height: 17px; }
+    .skill-card .tags { display: flex; flex-wrap: wrap; gap: 7px; }
+
+    /* Certs + Education */
+    .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+    .cert { display: flex; gap: 16px; align-items: center; margin-bottom: 16px; }
+    .cert:last-child { margin-bottom: 0; }
+    .cert-badge {
+      flex: none;
+      width: 56px; height: 56px;
+      border-radius: 14px;
+      display: grid; place-items: center;
+      font-weight: 800;
+      font-size: 0.9rem;
+      color: #0b1020;
+      background: var(--grad);
+    }
+    .cert b { display: block; }
+    .cert span, .edu span { color: var(--muted); font-size: 0.88rem; }
+    .edu h3 { margin-bottom: 6px; }
+
+    /* Contact */
+    .contact {
+      text-align: center;
+      padding: 56px 32px;
+      border-radius: 24px;
+      border: 1px solid var(--border-strong);
+      background:
+        radial-gradient(500px circle at 50% 0%, rgba(56, 189, 248, 0.12), transparent 70%),
+        var(--card);
+    }
+    .contact h2 { margin-bottom: 12px; }
+    .contact > p { color: var(--muted); max-width: 520px; margin: 0 auto 32px; }
+    .contact .btns { justify-content: center; }
+    .contact-meta { margin-top: 28px; color: var(--muted); font-size: 0.9rem; display: flex; justify-content: center; flex-wrap: wrap; gap: 8px 24px; }
+
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 28px 0 40px;
+      color: #64748b;
+      font-size: 0.85rem;
+      text-align: center;
+    }
+
+    /* Reveal on scroll */
+    .reveal { opacity: 0; transform: translateY(24px); transition: opacity .7s ease, transform .7s ease; }
+    .reveal.in { opacity: 1; transform: none; }
+    @media (prefers-reduced-motion: reduce) {
+      .reveal { opacity: 1; transform: none; transition: none; }
+      html { scroll-behavior: auto; }
+      .status .dot, .cursor { animation: none; }
+    }
+
+    /* ---------- RESPONSIVE ---------- */
+    @media (max-width: 900px) {
+      .hero { grid-template-columns: 1fr; padding-top: 64px; }
+      .about-grid, .two-col { grid-template-columns: 1fr; }
+      .stats { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 720px) {
+      .nav-links { display: none; }
+      .projects { grid-template-columns: 1fr; }
+      .container { padding: 0 16px; }
+      section { margin-bottom: 80px; }
+      .card { padding: 22px; }
+      .timeline { padding-left: 26px; }
+      .tl-item::before { left: -26px; }
+      .timeline::before { left: 4px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <div class="container">
+      <a href="#top" class="logo">barkatullah<span>.asfi</span></a>
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main class="container" id="top">
+
+    <!-- HERO -->
+    <header class="hero">
+      <div>
+        <div class="status"><span class="dot"></span> Available for remote work (async)</div>
+        <h1>Hi, I'm <span class="gradient-text">Barkatullah Asfi</span></h1>
+        <p class="role">PHP Back-End Developer (Laravel) · Cybersecurity &amp; Incident Response</p>
+        <p class="lead">
+          I build and maintain production Laravel systems for local government (attendance platforms,
+          permit workflows, ticketing, and e-commerce) with a security-first mindset backed by
+          hands-on penetration testing, SIEM deployment, and CVE remediation.
+        </p>
+        <div class="btns">
+          <a href="#projects" class="btn btn-primary">
+            View Projects
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+          </a>
+          <a href="mailto:barkatullahasfi0@gmail.com" class="btn btn-ghost">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 6-10 7L2 6"/></svg>
+            Get in Touch
+          </a>
+        </div>
+      </div>
+
+      <div class="terminal" aria-hidden="true">
+        <div class="terminal-bar"><i></i><i></i><i></i><span>~/barkatullah — zsh</span></div>
+<pre><span class="t-prompt">$</span> php artisan about:me
+<span class="t-com">// developer profile</span>
+<span class="t-key">name</span>     → <span class="t-str">"Barkatullah Asfi"</span>
+<span class="t-key">based</span>    → <span class="t-str">"Balangan, Kalsel 🇮🇩"</span>
+<span class="t-key">stack</span>    → [<span class="t-str">"Laravel"</span>, <span class="t-str">"Filament"</span>,
+            <span class="t-str">"Livewire"</span>, <span class="t-str">"Flutter"</span>]
+<span class="t-key">security</span> → [<span class="t-str">"CEH"</span>, <span class="t-str">"CHFI"</span>, <span class="t-str">"Wazuh"</span>]
+<span class="t-key">exp</span>      → <span class="t-str">"5 years in production"</span>
+<span class="t-prompt">$</span> <span class="cursor"></span></pre>
+      </div>
     </header>
 
-     <!-- ABOUT -->
-     <section>
-       <h2>About</h2>
-       <p>
-         Back-end developer with 5 years of experience building and maintaining production Laravel/PHP
-         systems as an IT Officer for a local government (Diskominfo Kabupaten Balangan), including a
-         full-scale attendance platform (Laravel + Filament + Flutter), a land-permit workflow application,
-         a support ticketing system, and an e-commerce/services platform with payment gateway integration.
-         Background also includes hands-on server administration, Linux infrastructure management, and
-         cybersecurity work — formal and self-conducted penetration testing of production applications,
-         SIEM deployment, and CVE remediation — bringing a security-conscious approach to back-end
-         architecture. Also teaches Network Security, Web Programming, and Database Systems part-time,
-         and runs ARTECH LAB, an IT solutions studio serving SMEs and local government agencies.
-         Comfortable working independently, documenting systems formally, and using AI-assisted
-         development tools (Claude Code) to accelerate delivery without compromising code quality.
-       </p>
-     </section>
+    <!-- STATS -->
+    <div class="stats reveal">
+      <div class="stat"><b>5+</b><span>Years in production</span></div>
+      <div class="stat"><b>8</b><span>Systems shipped</span></div>
+      <div class="stat"><b>70+</b><span>Domains audited</span></div>
+      <div class="stat"><b>CEH · CHFI</b><span>EC-Council certified</span></div>
+    </div>
 
-     <!-- EXPERIENCE -->
-     <section>
-       <h2>Experience</h2>
-
-       <div class="card">
-         <h3>Pranata Komputer (IT Officer) <span style="font-size: 0.8rem; color: var(--muted); font-weight: normal;">— Diskominfo Kabupaten Balangan · 2021 – Present</span></h3>
-         <ul>
-           <li>Designed and developed E-Office v2, a government attendance and workforce management system (Laravel + Filament + Flutter) with GPS geofencing check-in, shift management, salary deduction calculation, event attendance, and device-lock security — deployed in production.</li>
-           <li>Built SiApprosing, a land-permit (sporadik) submission and approval workflow system for the Dinas Lingkungan Hidup (DPLH).</li>
-           <li>Developed and deployed a support ticketing/helpdesk system, and an internal email administration platform with self-service registration and webmail.</li>
-           <li>Built an e-commerce/services platform (Laravel + Filament + Livewire) with automated payment gateway (Tripay) and manual bank-transfer verification paths.</li>
-           <li>Conducted formal and self-directed penetration testing on production applications; deployed and maintained Wazuh SIEM/XDR with custom detection rules and Telegram alerting.</li>
-           <li>Led incident response for a website defacement attack, producing formal incident/forensic documentation and completing full remediation independently.</li>
-           <li>Identified and remediated critical CVEs (Linux kernel privilege escalation, cPanel auth bypass) across three production servers; audited 70+ third-party domains for exposure.</li>
-           <li>Administered Linux server infrastructure (SSH hardening, reverse-tunnel NAS backups, Cloudflare DNS/SSL) supporting dozens of government agency websites.</li>
-           <li>Set up a self-hosted Gitea/Forgejo instance for internal version control with custom branding and an admin-approval registration workflow.</li>
-           <li>Authored formal technical documentation, SOPs, and monthly performance reports for regulatory and audit purposes.</li>
-         </ul>
-       </div>
-
-       <div class="card">
-         <h3>Founder &amp; Owner <span style="font-size: 0.8rem; color: var(--muted); font-weight: normal;">— ARTECH LAB · 2025 – Present</span></h3>
-         <p>
-           IT solutions studio serving SMEs and local government agencies: website development, custom
-           information systems, server management, security auditing/hardening, and application development.
-         </p>
-         <ul>
-           <li>Delivered information systems for local government clients as an external vendor, including a public health data-collection system (PHBS Online Balangan) and an e-regulation management system (ERaperda).</li>
-         </ul>
-       </div>
-
-       <div class="card">
-         <h3>Part-Time Lecturer <span style="font-size: 0.8rem; color: var(--muted); font-weight: normal;">— Universitas Sapta Mandiri · 2021 – Present</span></h3>
-         <p>
-           Teach Network Security, Web Programming, and Database Systems to undergraduate students,
-           combining hands-on labs with theoretical foundations.
-         </p>
-       </div>
-     </section>
- 
-     <!-- CASE STUDIES --> 
-     <section> 
-       <h2>Case Studies</h2> 
- 
-       <div class="card">
-         <h3>
-           <a href="https://e-office-v2.balangankab.go.id" target="_blank">E-Office v2 Balangan</a>
-         </h3>
-         <p>
-           Government attendance and workforce management system for Kabupaten Balangan, featuring GPS
-           geofencing check-in, shift management, salary deduction calculation, event attendance, and
-           device-lock security.
-         </p>
-
-         <p><strong>My Role</strong></p>
-         <ul>
-           <li>Designed and developed the full system, web admin and mobile app</li>
-           <li>Deployment and production maintenance</li>
-         </ul>
-
-         <p><strong>Tech Stack</strong></p>
-         <span class="tag">Laravel</span>
-         <span class="tag">Filament</span>
-         <span class="tag">Flutter</span>
-         <span class="tag">MySQL</span>
-       </div>
-
-       <div class="card">
-         <h3>
-           <a href="https://pertanahan.dplh.balangankab.go.id" target="_blank">SiApprosing</a>
-         </h3>
-         <p>
-           Land-permit (sporadik) submission and approval workflow system for the Dinas Lingkungan Hidup
-           (DPLH), covering submission, review, and approval stages. Penetration tested before and after
-           deployment.
-         </p>
-
-         <p><strong>My Role</strong></p>
-         <ul>
-           <li>Backend development using Laravel</li>
-           <li>Formal and self-directed penetration testing</li>
-         </ul>
-
-         <p><strong>Tech Stack</strong></p>
-         <span class="tag">Laravel</span>
-         <span class="tag">MySQL</span>
-       </div>
-
-       <div class="card">
-         <h3>
-           <a href="https://helpdesk-diskominfo.balangankab.go.id" target="_blank">Helpdesk Diskominfo</a>
-         </h3>
-         <p>
-           Support ticketing/helpdesk system for internal Diskominfo use, live in production.
-         </p>
-
-         <p><strong>My Role</strong></p>
-         <ul>
-           <li>Sole developer — design, development, and deployment</li>
-           <li>Penetration testing and remediation</li>
-         </ul>
-
-         <p><strong>Tech Stack</strong></p>
-         <span class="tag">Laravel</span>
-         <span class="tag">MySQL</span>
-       </div>
-
-       <div class="card">
-         <h3>
-           <a href="https://email.balangankab.go.id" target="_blank">Email Management Platform</a>
-         </h3>
-         <p>
-           Internal email administration platform handling account provisioning (create/delete), a
-           self-service registration flow with real-time availability checking, and a webmail interface.
-         </p>
-
-         <p><strong>My Role</strong></p>
-         <ul>
-           <li>Sole developer — design, development, and deployment</li>
-         </ul>
-
-         <p><strong>Tech Stack</strong></p>
-         <span class="tag">Laravel</span>
-         <span class="tag">MySQL</span>
-       </div>
-
-       <div class="card">
-         <h3>E-Commerce / Services Platform</h3>
-         <p>
-           E-commerce and services platform with dual payment paths: automated payment gateway
-           integration (Tripay) and manual bank transfer with admin verification for high-value invoices.
-         </p>
-
-         <p><strong>My Role</strong></p>
-         <ul>
-           <li>Sole developer — design, development, and payment integration</li>
-         </ul>
-
-         <p><strong>Tech Stack</strong></p>
-         <span class="tag">Laravel</span>
-         <span class="tag">Filament</span>
-         <span class="tag">Livewire</span>
-         <span class="tag">Tripay Payment Gateway</span>
-         <span class="tag">MySQL</span>
-       </div>
-
-       <div class="card">
-         <h3>PHBS Online Balangan <span style="font-size: 0.8rem; color: var(--muted); font-weight: normal;">— Vendor Project, ARTECH LAB</span></h3>
-         <p>
-           Public health data-collection system for community health cadres and clinic staff.
-         </p>
-
-         <p><strong>My Role</strong></p>
-         <ul>
-           <li>Delivered as external vendor for a local government client</li>
-         </ul>
-
-         <p><strong>Tech Stack</strong></p>
-         <span class="tag">Laravel</span>
-         <span class="tag">MySQL</span>
-       </div>
-
-       <div class="card">
-         <h3>
-           <a href="https://eraperda-balangan.online" target="_blank">ERaperda System</a>
-           <span style="font-size: 0.8rem; color: var(--muted); font-weight: normal;">— Vendor Project, ARTECH LAB</span>
-         </h3>
-         <p>
-           Electronic regulation management system used by a local government institution
-           for drafting, managing, and publishing legislative documents.
-         </p>
-
-         <p>
-            <a href="eraperda-preview.html" target="_blank" style="font-size: 0.9rem; display: inline-block; margin-bottom: 10px;">
-              &#128065; Lihat Preview Statis (Alternatif Akses)
-            </a>
-         </p>
-
-         <p><strong>My Role</strong></p>
-         <ul>
-           <li>Backend development using Laravel</li>
-           <li>Deployment and server configuration</li>
-           <li>Basic security hardening and WAF configuration</li>
-         </ul>
-
-         <p><strong>Tech Stack</strong></p>
-         <span class="tag">Laravel</span>
-         <span class="tag">MySQL</span>
-         <span class="tag">Nginx</span>
-         <span class="tag">Cloudflare WAF</span>
-
-         <p style="margin-top: 12px; color: var(--muted);">
-           Note: Public crawling and access are restricted based on client policy.
-         </p>
-       </div>
-
-       <div class="card">
-         <h3>Open Data Portal, Kabupaten Balangan <span style="font-size: 0.8rem; color: var(--muted); font-weight: normal;">— In Development</span></h3>
-         <p>
-           Laravel-based open data platform for Kabupaten Balangan.
-         </p>
-
-         <p><strong>My Role</strong></p>
-         <ul>
-           <li>Data architecture/design team — 13-table schema, Excel-to-JSON ingestion pipeline</li>
-           <li>Penetration testing team</li>
-         </ul>
-
-         <p><strong>Tech Stack</strong></p>
-         <span class="tag">Laravel</span>
-         <span class="tag">MySQL</span>
-       </div>
- 
-       <div class="card">
-         <h3>
-           <a href="https://script.google.com/macros/s/AKfycbzweT9q5z7KAL_vShScGlj5A5dNO3_DaQIC73l8p3FAIrsgSF6Id2yaMUr-uVp_twoX/exec" target="_blank">Buku Menu Digital – Resto Pondok Kebun</a>
-         </h3>
-         <p>
-           Digital menu application for Resto Pondok Kebun, a local restaurant. Displays food and beverage packages with images, built and deployed as a lightweight web app accessible via any device.
-         </p>
-
-         <p><strong>My Role</strong></p>
-         <ul>
-           <li>Developed and deployed the digital menu web app</li>
-           <li>Managed menu data and layout using Google Sheets as backend</li>
-         </ul>
-
-         <p><strong>Tech Stack</strong></p>
-         <span class="tag">Google Apps Script</span>
-         <span class="tag">Google Sheets</span>
-         <span class="tag">HTML/CSS</span>
-       </div>
-
-       <div class="card">
-         <h3>Radiant Secure 2026 <span style="font-size: 0.8rem; color: var(--muted); font-weight: normal;">— Case Study (on request)</span></h3>
-         <p>
-           Cybersecurity training program for students and general participants. Focused on hands-on OWASP Juice Shop challenges, penetration testing fundamentals, and formal evaluation with structured scoring rubrics. Runs as offline/private batch sessions.
-         </p>
-
-         <p><strong>My Role</strong></p>
-         <ul>
-           <li>Mentor</li>
-           <li>Designed curriculum, challenges, and evaluation rubrics</li>
-           <li>Facilitated hands-on penetration testing sessions</li>
-         </ul>
-
-         <p><strong>Focus Areas</strong></p>
-         <span class="tag">OWASP Juice Shop</span>
-         <span class="tag">Penetration Testing</span>
-         <span class="tag">Security Training</span>
-
-         <p style="margin-top: 12px; color: var(--muted);">
-           Offline / private program. Details available on request.
-         </p>
-       </div>
-
-       <div class="card">
-         <h3>Claude + Telegram Bot — Server Automation <span style="font-size: 0.8rem; color: var(--muted); font-weight: normal;">— Private Project</span></h3>
-         <p>
-           AI-powered remote server management tool via Telegram. Enables monitoring resource usage, analyzing logs, and restarting or checking service status — all without an active SSH session. Claude AI acts as the reasoning engine for natural-language commands.
-         </p>
-
-         <p><strong>My Role</strong></p>
-         <ul>
-           <li>Sole developer — architecture, integration, and deployment</li>
-           <li>Integrated Claude AI for natural-language server command interpretation</li>
-         </ul>
-
-         <p><strong>Tech Stack</strong></p>
-         <span class="tag">Node.js</span>
-         <span class="tag">Claude AI (Anthropic SDK)</span>
-         <span class="tag">Telegram Bot API</span>
-         <span class="tag">Linux Server</span>
-
-         <p style="margin-top: 12px; color: var(--muted);">
-           Private repository. Details available on request.
-         </p>
-       </div>
-
-     </section>
-
-     <!-- SKILLS --> 
-     <section>
-       <h2>Skills</h2>
-       <span class="tag">Laravel</span>
-       <span class="tag">PHP</span>
-       <span class="tag">Filament</span>
-       <span class="tag">Livewire</span>
-       <span class="tag">REST API</span>
-       <span class="tag">MySQL</span>
-       <span class="tag">Vue.js</span>
-       <span class="tag">Blade</span>
-       <span class="tag">Flutter (Android)</span>
-       <span class="tag">Linux Server Administration (AlmaLinux, Ubuntu)</span>
-       <span class="tag">WHM/cPanel</span>
-       <span class="tag">Nginx</span>
-       <span class="tag">SSH Hardening</span>
-       <span class="tag">Cloudflare DNS/WAF</span>
-       <span class="tag">NAS Backup Systems</span>
-       <span class="tag">Penetration Testing</span>
-       <span class="tag">Wazuh SIEM/XDR</span>
-       <span class="tag">Incident Response</span>
-       <span class="tag">CVE Remediation</span>
-       <span class="tag">Vulnerability Assessment</span>
-       <span class="tag">Bug Bounty</span>
-       <span class="tag">Git / Gitea / Forgejo</span>
-       <span class="tag">CI/CD Basics</span>
-       <span class="tag">AI-Assisted Development (Claude Code)</span>
-    </section>
-
-    <!-- CERTIFICATIONS --> 
-    <section> 
-      <h2>Certifications</h2> 
-    
-      <div class="card"> 
-        <ul> 
-          <li> 
-            Certified Ethical Hacker (CEH) 
-            <span style="color: var(--muted);">– EC-Council</span> 
-          </li> 
-          <li style="margin-top: 8px;"> 
-            Computer Hacking Forensic Investigator (CHFI) 
-            <span style="color: var(--muted);">– EC-Council</span> 
-          </li> 
-        </ul> 
-    
-        <p style="margin-top: 12px; color: var(--muted);"> 
-          These certifications support my security awareness when building 
-          and maintaining production systems. 
-        </p> 
-      </div> 
-    </section> 
- 
-    <!-- EDUCATION -->
-    <section>
-      <h2>Education</h2>
-      <div class="card">
-        <h3>Bachelor of Engineering (S1), Informatics Engineering</h3>
-        <p style="margin: 0; color: var(--muted);">
-          Universitas Islam Kalimantan (UNISKA) Muhammad Arsyad Al Banjari, Banjarmasin · 2016 – 2021
-        </p>
+    <!-- ABOUT -->
+    <section id="about" class="reveal">
+      <p class="eyebrow">// About</p>
+      <h2>Developer with a security mindset</h2>
+      <div class="about-grid">
+        <div>
+          <p>
+            Back-end developer with <strong>5 years of experience</strong> building and maintaining production
+            Laravel/PHP systems as an IT Officer for a local government (Diskominfo Kabupaten Balangan), including a
+            full-scale attendance platform (Laravel + Filament + Flutter), a land-permit workflow application,
+            a support ticketing system, and an e-commerce/services platform with payment gateway integration.
+          </p>
+          <p>
+            My background also covers <strong>Linux server administration</strong> and <strong>cybersecurity</strong>:
+            formal and self-conducted penetration testing of production applications, SIEM deployment, and CVE
+            remediation. That brings a security-conscious approach to back-end architecture.
+          </p>
+          <p>
+            I also teach Network Security, Web Programming, and Database Systems part-time, and run
+            <strong>ARTECH LAB</strong>, an IT solutions studio serving SMEs and local government agencies.
+            I'm comfortable working independently, documenting systems formally, and using AI-assisted
+            development tools (Claude Code) to deliver faster without compromising code quality.
+          </p>
+        </div>
+        <div class="card">
+          <ul class="focus-list">
+            <li>
+              <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m16 18 6-6-6-6M8 6l-6 6 6 6"/></svg></span>
+              <div><b>Back-End Development</b>Laravel, Filament, Livewire, REST APIs</div>
+            </li>
+            <li>
+              <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></span>
+              <div><b>Application Security</b>Pentesting, hardening, incident response</div>
+            </li>
+            <li>
+              <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="8" rx="2"/><rect x="2" y="14" width="20" height="8" rx="2"/><path d="M6 6h.01M6 18h.01"/></svg></span>
+              <div><b>Infrastructure</b>Linux, Nginx, WHM/cPanel, Cloudflare</div>
+            </li>
+            <li>
+              <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10 12 5 2 10l10 5 10-5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg></span>
+              <div><b>Teaching &amp; Mentoring</b>University lecturer, security trainer</div>
+            </li>
+          </ul>
+        </div>
       </div>
     </section>
 
-     <!-- CONTACT --> 
-     <section>
-       <h2>Contact</h2>
-       <p>
-         Email: <a href="mailto:barkatullahasfi0@gmail.com">barkatullahasfi0@gmail.com</a><br>
-         Phone: +62 857 5443 3265<br>
-         LinkedIn: <a href="https://linkedin.com/in/barkatullahasfi" target="_blank">linkedin.com/in/barkatullahasfi</a><br>
-         GitHub: <a href="https://github.com/barkatullahasfi" target="_blank">github.com/barkatullahasfi</a><br>
-         Location: Balangan, South Kalimantan, Indonesia
-       </p>
-     </section>
- 
-     <footer> 
-       <p> 
-         © 2026 Barkatullah Asfi. Built as a static site and served via GitHub Pages and Cloudflare. 
-       </p> 
-     </footer> 
- 
-   </div> 
- 
- </body> 
- </html>
+    <!-- EXPERIENCE -->
+    <section id="experience" class="reveal">
+      <p class="eyebrow">// Experience</p>
+      <h2>Where I've worked</h2>
+
+      <div class="timeline">
+        <div class="tl-item card">
+          <div class="tl-head">
+            <div>
+              <h3>Pranata Komputer (IT Officer)</h3>
+              <div class="tl-org">Diskominfo Kabupaten Balangan</div>
+            </div>
+            <span class="date">2021 — Present</span>
+          </div>
+          <ul>
+            <li>Designed and developed E-Office v2, a government attendance and workforce management system (Laravel + Filament + Flutter) with GPS geofencing check-in, shift management, salary deduction calculation, event attendance, and device-lock security. Deployed in production.</li>
+            <li>Built SiApprosing, a land-permit (sporadik) submission and approval workflow system for the Dinas Lingkungan Hidup (DPLH).</li>
+            <li>Developed and deployed a support ticketing/helpdesk system, and an internal email administration platform with self-service registration and webmail.</li>
+            <li>Built an e-commerce/services platform (Laravel + Filament + Livewire) with automated payment gateway (Tripay) and manual bank-transfer verification paths.</li>
+            <li>Conducted formal and self-directed penetration testing on production applications; deployed and maintained Wazuh SIEM/XDR with custom detection rules and Telegram alerting.</li>
+            <li>Led incident response for a website defacement attack, producing formal incident and forensic documentation and completing full remediation independently.</li>
+            <li>Identified and remediated critical CVEs (Linux kernel privilege escalation, cPanel auth bypass) across three production servers; audited 70+ third-party domains for exposure.</li>
+            <li>Administered Linux server infrastructure (SSH hardening, reverse-tunnel NAS backups, Cloudflare DNS/SSL) supporting dozens of government agency websites.</li>
+            <li>Set up a self-hosted Gitea/Forgejo instance for internal version control with custom branding and an admin-approval registration workflow.</li>
+            <li>Authored formal technical documentation, SOPs, and monthly performance reports for regulatory and audit purposes.</li>
+          </ul>
+        </div>
+
+        <div class="tl-item card">
+          <div class="tl-head">
+            <div>
+              <h3>Founder &amp; Owner</h3>
+              <div class="tl-org">ARTECH LAB</div>
+            </div>
+            <span class="date">2025 — Present</span>
+          </div>
+          <p>
+            IT solutions studio serving SMEs and local government agencies: website development, custom
+            information systems, server management, security auditing/hardening, and application development.
+          </p>
+          <ul>
+            <li>Delivered information systems for local government clients as an external vendor, including a public health data-collection system (PHBS Online Balangan) and an e-regulation management system (ERaperda).</li>
+          </ul>
+        </div>
+
+        <div class="tl-item card">
+          <div class="tl-head">
+            <div>
+              <h3>Part-Time Lecturer</h3>
+              <div class="tl-org">Universitas Sapta Mandiri</div>
+            </div>
+            <span class="date">2021 — Present</span>
+          </div>
+          <p>
+            Teach Network Security, Web Programming, and Database Systems to undergraduate students,
+            combining hands-on labs with theoretical foundations.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects" class="reveal">
+      <p class="eyebrow">// Case Studies</p>
+      <h2>Selected projects</h2>
+
+      <div class="filters" role="group" aria-label="Filter projects">
+        <button class="filter active" data-filter="all">All</button>
+        <button class="filter" data-filter="gov">Government</button>
+        <button class="filter" data-filter="vendor">Vendor</button>
+        <button class="filter" data-filter="other">Security &amp; Personal</button>
+      </div>
+
+      <div class="projects">
+
+        <article class="card project" data-cat="gov">
+          <div class="p-top">
+            <h3><a href="https://e-office-v2.balangankab.go.id" target="_blank" rel="noopener">E-Office v2 Balangan</a></h3>
+            <span class="badge b-gov">Government</span>
+          </div>
+          <p class="desc">Government attendance and workforce management system with GPS geofencing check-in, shift management, salary deduction calculation, event attendance, and device-lock security.</p>
+          <ul class="role">
+            <li>Designed and developed the full system: web admin and mobile app</li>
+            <li>Deployment and production maintenance</li>
+          </ul>
+          <div class="p-foot"><span class="tag">Laravel</span><span class="tag">Filament</span><span class="tag">Flutter</span><span class="tag">MySQL</span></div>
+        </article>
+
+        <article class="card project" data-cat="gov">
+          <div class="p-top">
+            <h3><a href="https://pertanahan.dplh.balangankab.go.id" target="_blank" rel="noopener">SiApprosing</a></h3>
+            <span class="badge b-gov">Government</span>
+          </div>
+          <p class="desc">Land-permit (sporadik) submission and approval workflow for the Dinas Lingkungan Hidup (DPLH), covering submission, review, and approval stages. Penetration tested before and after deployment.</p>
+          <ul class="role">
+            <li>Backend development using Laravel</li>
+            <li>Formal and self-directed penetration testing</li>
+          </ul>
+          <div class="p-foot"><span class="tag">Laravel</span><span class="tag">MySQL</span></div>
+        </article>
+
+        <article class="card project" data-cat="gov">
+          <div class="p-top">
+            <h3><a href="https://helpdesk-diskominfo.balangankab.go.id" target="_blank" rel="noopener">Helpdesk Diskominfo</a></h3>
+            <span class="badge b-gov">Government</span>
+          </div>
+          <p class="desc">Support ticketing/helpdesk system for internal Diskominfo use, live in production.</p>
+          <ul class="role">
+            <li>Sole developer: design, development, and deployment</li>
+            <li>Penetration testing and remediation</li>
+          </ul>
+          <div class="p-foot"><span class="tag">Laravel</span><span class="tag">MySQL</span></div>
+        </article>
+
+        <article class="card project" data-cat="gov">
+          <div class="p-top">
+            <h3><a href="https://email.balangankab.go.id" target="_blank" rel="noopener">Email Management Platform</a></h3>
+            <span class="badge b-gov">Government</span>
+          </div>
+          <p class="desc">Email administration platform handling account provisioning (create/delete), a self-service registration flow with real-time availability checking, and a webmail interface.</p>
+          <ul class="role">
+            <li>Sole developer: design, development, and deployment</li>
+          </ul>
+          <div class="p-foot"><span class="tag">Laravel</span><span class="tag">MySQL</span></div>
+        </article>
+
+        <article class="card project" data-cat="gov">
+          <div class="p-top">
+            <h3>E-Commerce / Services Platform</h3>
+            <span class="badge b-gov">Government</span>
+          </div>
+          <p class="desc">E-commerce and services platform with dual payment paths: automated payment gateway integration (Tripay) and manual bank transfer with admin verification for high-value invoices.</p>
+          <ul class="role">
+            <li>Sole developer: design, development, and payment integration</li>
+          </ul>
+          <div class="p-foot"><span class="tag">Laravel</span><span class="tag">Filament</span><span class="tag">Livewire</span><span class="tag">Tripay</span><span class="tag">MySQL</span></div>
+        </article>
+
+        <article class="card project" data-cat="gov">
+          <div class="p-top">
+            <h3>Open Data Portal, Kabupaten Balangan</h3>
+            <span class="badge b-dev">In Development</span>
+          </div>
+          <p class="desc">Laravel-based open data platform for Kabupaten Balangan.</p>
+          <ul class="role">
+            <li>Data architecture/design team: 13-table schema, Excel-to-JSON ingestion pipeline</li>
+            <li>Penetration testing team</li>
+          </ul>
+          <div class="p-foot"><span class="tag">Laravel</span><span class="tag">MySQL</span></div>
+        </article>
+
+        <article class="card project" data-cat="vendor">
+          <div class="p-top">
+            <h3><a href="https://eraperda-balangan.online" target="_blank" rel="noopener">ERaperda System</a></h3>
+            <span class="badge b-vendor">ARTECH LAB</span>
+          </div>
+          <p class="desc">Electronic regulation management system used by a local government institution for drafting, managing, and publishing legislative documents.</p>
+          <div class="p-links">
+            <a href="eraperda-preview.html" target="_blank">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+              Lihat Preview Statis (Alternatif Akses)
+            </a>
+          </div>
+          <ul class="role">
+            <li>Backend development using Laravel</li>
+            <li>Deployment and server configuration</li>
+            <li>Basic security hardening and WAF configuration</li>
+          </ul>
+          <p class="note">Public crawling and access are restricted based on client policy.</p>
+          <div class="p-foot"><span class="tag">Laravel</span><span class="tag">MySQL</span><span class="tag">Nginx</span><span class="tag">Cloudflare WAF</span></div>
+        </article>
+
+        <article class="card project" data-cat="vendor">
+          <div class="p-top">
+            <h3>PHBS Online Balangan</h3>
+            <span class="badge b-vendor">ARTECH LAB</span>
+          </div>
+          <p class="desc">Public health data-collection system for community health cadres and clinic staff.</p>
+          <ul class="role">
+            <li>Delivered as external vendor for a local government client</li>
+          </ul>
+          <div class="p-foot"><span class="tag">Laravel</span><span class="tag">MySQL</span></div>
+        </article>
+
+        <article class="card project" data-cat="other">
+          <div class="p-top">
+            <h3>Radiant Secure 2026</h3>
+            <span class="badge b-sec">Training</span>
+          </div>
+          <p class="desc">Cybersecurity training program for students and general participants, focused on hands-on OWASP Juice Shop challenges, penetration testing fundamentals, and formal evaluation with structured scoring rubrics.</p>
+          <ul class="role">
+            <li>Mentor: designed curriculum, challenges, and evaluation rubrics</li>
+            <li>Facilitated hands-on penetration testing sessions</li>
+          </ul>
+          <p class="note">Offline / private program. Details available on request.</p>
+          <div class="p-foot"><span class="tag">OWASP Juice Shop</span><span class="tag">Penetration Testing</span><span class="tag">Security Training</span></div>
+        </article>
+
+        <article class="card project" data-cat="other">
+          <div class="p-top">
+            <h3>Claude + Telegram Bot: Server Automation</h3>
+            <span class="badge b-personal">Private</span>
+          </div>
+          <p class="desc">AI-powered remote server management via Telegram: monitor resource usage, analyze logs, and restart or check services without an active SSH session. Claude AI interprets natural-language commands.</p>
+          <ul class="role">
+            <li>Sole developer: architecture, integration, and deployment</li>
+          </ul>
+          <p class="note">Private repository. Details available on request.</p>
+          <div class="p-foot"><span class="tag">Node.js</span><span class="tag">Anthropic SDK</span><span class="tag">Telegram Bot API</span><span class="tag">Linux</span></div>
+        </article>
+
+        <article class="card project" data-cat="other">
+          <div class="p-top">
+            <h3><a href="https://script.google.com/macros/s/AKfycbzweT9q5z7KAL_vShScGlj5A5dNO3_DaQIC73l8p3FAIrsgSF6Id2yaMUr-uVp_twoX/exec" target="_blank" rel="noopener">Buku Menu Digital – Resto Pondok Kebun</a></h3>
+            <span class="badge b-personal">Client</span>
+          </div>
+          <p class="desc">Digital menu for a local restaurant, displaying food and beverage packages with images, as a lightweight web app accessible from any device.</p>
+          <ul class="role">
+            <li>Developed and deployed the web app; Google Sheets as the menu backend</li>
+          </ul>
+          <div class="p-foot"><span class="tag">Google Apps Script</span><span class="tag">Google Sheets</span><span class="tag">HTML/CSS</span></div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section id="skills" class="reveal">
+      <p class="eyebrow">// Skills</p>
+      <h2>Tools I work with</h2>
+      <div class="skills-grid">
+        <div class="card skill-card">
+          <h3><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v14c0 1.7 4 3 9 3s9-1.3 9-3V5M3 12c0 1.7 4 3 9 3s9-1.3 9-3"/></svg></span>Back-End</h3>
+          <div class="tags"><span class="tag">PHP</span><span class="tag">Laravel</span><span class="tag">Filament</span><span class="tag">Livewire</span><span class="tag">REST API</span><span class="tag">MySQL</span></div>
+        </div>
+        <div class="card skill-card">
+          <h3><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2"/><path d="M12 18h.01"/></svg></span>Front-End &amp; Mobile</h3>
+          <div class="tags"><span class="tag">Vue.js</span><span class="tag">Blade</span><span class="tag">Flutter (Android)</span></div>
+        </div>
+        <div class="card skill-card">
+          <h3><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="8" rx="2"/><rect x="2" y="14" width="20" height="8" rx="2"/><path d="M6 6h.01M6 18h.01"/></svg></span>Infrastructure</h3>
+          <div class="tags"><span class="tag">AlmaLinux</span><span class="tag">Ubuntu</span><span class="tag">WHM/cPanel</span><span class="tag">Nginx</span><span class="tag">SSH Hardening</span><span class="tag">Cloudflare DNS/WAF</span><span class="tag">NAS Backup</span></div>
+        </div>
+        <div class="card skill-card">
+          <h3><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></span>Security</h3>
+          <div class="tags"><span class="tag">Penetration Testing</span><span class="tag">Wazuh SIEM/XDR</span><span class="tag">Incident Response</span><span class="tag">CVE Remediation</span><span class="tag">Vulnerability Assessment</span><span class="tag">Bug Bounty</span></div>
+        </div>
+        <div class="card skill-card">
+          <h3><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="6" r="3"/><circle cx="18" cy="18" r="3"/><path d="M6 9v3a6 6 0 0 0 6 6h3"/></svg></span>Tools &amp; Practices</h3>
+          <div class="tags"><span class="tag">Git</span><span class="tag">Gitea / Forgejo</span><span class="tag">CI/CD Basics</span><span class="tag">Claude Code</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CERTIFICATIONS & EDUCATION -->
+    <section class="reveal">
+      <p class="eyebrow">// Credentials</p>
+      <h2>Certifications &amp; education</h2>
+      <div class="two-col">
+        <div class="card">
+          <div class="cert">
+            <div class="cert-badge">CEH</div>
+            <div><b>Certified Ethical Hacker</b><span>EC-Council</span></div>
+          </div>
+          <div class="cert">
+            <div class="cert-badge">CHFI</div>
+            <div><b>Computer Hacking Forensic Investigator</b><span>EC-Council</span></div>
+          </div>
+        </div>
+        <div class="card edu">
+          <span class="date" style="display:inline-block;margin-bottom:14px;">2016 — 2021</span>
+          <h3>Bachelor of Engineering (S1), Informatics Engineering</h3>
+          <span>Universitas Islam Kalimantan (UNISKA) Muhammad Arsyad Al Banjari, Banjarmasin</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="reveal">
+      <div class="contact">
+        <p class="eyebrow">// Contact</p>
+        <h2>Let's build something secure</h2>
+        <p>Open to remote projects, Laravel development, maintenance work, and security audits. Feel free to reach out.</p>
+        <div class="btns">
+          <a href="mailto:barkatullahasfi0@gmail.com" class="btn btn-primary">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 6-10 7L2 6"/></svg>
+            Email Me
+          </a>
+          <a href="https://linkedin.com/in/barkatullahasfi" target="_blank" rel="noopener" class="btn btn-ghost">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg>
+            LinkedIn
+          </a>
+          <a href="https://github.com/barkatullahasfi" target="_blank" rel="noopener" class="btn btn-ghost">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .3a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.6-1.4-1.4-1.8-1.4-1.8-1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.7-1.6-2.7-.3-5.5-1.3-5.5-6 0-1.2.5-2.3 1.3-3.1-.2-.4-.6-1.6 0-3.2 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0C17.3 4.7 18.3 5 18.3 5c.6 1.6.2 2.8.1 3.2.8.8 1.3 1.9 1.3 3.1 0 4.6-2.8 5.6-5.5 5.9.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6A12 12 0 0 0 12 .3"/></svg>
+            GitHub
+          </a>
+        </div>
+        <div class="contact-meta">
+          <span>📧 barkatullahasfi0@gmail.com</span>
+          <span>📱 +62 857 5443 3265</span>
+          <span>📍 Balangan, South Kalimantan, Indonesia</span>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="container">
+      © 2026 Barkatullah Asfi · Built as a static site, served via GitHub Pages and Cloudflare.
+    </div>
+  </footer>
+
+  <script>
+    // Reveal sections on scroll
+    (function () {
+      var els = document.querySelectorAll('.reveal');
+      if (!('IntersectionObserver' in window)) {
+        els.forEach(function (el) { el.classList.add('in'); });
+        return;
+      }
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+          if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+        });
+      }, { threshold: 0.08 });
+      els.forEach(function (el) { io.observe(el); });
+    })();
+
+    // Project filters
+    (function () {
+      var buttons = document.querySelectorAll('.filter');
+      var projects = document.querySelectorAll('.project');
+      buttons.forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          buttons.forEach(function (b) { b.classList.remove('active'); });
+          btn.classList.add('active');
+          var f = btn.getAttribute('data-filter');
+          projects.forEach(function (p) {
+            p.classList.toggle('hidden', f !== 'all' && p.getAttribute('data-cat') !== f);
+          });
+        });
+      });
+    })();
+  </script>
+</body>
+</html>
